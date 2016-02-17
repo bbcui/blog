@@ -22,7 +22,7 @@ System.register(["angular2/core"], function(exports_1) {
                 PostsComponent = __decorate([
                     core_1.Component({
                         selector: "posts",
-                        templateUrl: "./Components/posts/posts.component.html"
+                        templateUrl: "./app/Components/posts/posts.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], PostsComponent);

@@ -2,8 +2,8 @@
     <div class="navigation-Section">
         <div class="sitename"><a href="#">Bin Cui's blog</a></div>
         <div class="navlinks">
-            <a href="#">Posts</a>
-            <a href="#">About</a>
+            <a [routerLink]="['Posts']">Posts</a>
+            <a [routerLink]="['About']">About</a>
         </div>
     </div>
     
@@ -14,8 +14,10 @@
         </div>
     </div>
     <div class="mainPane">
-
+        <router-outlet></router-outlet>
     </div>
-    <div class="footerPane">footer</div>
+    <div class="footerPane">
+        <span class="copyrightfooter">© 2016 Bin Cui</span>
+    </div>
 </div>
 

@@ -22,7 +22,7 @@ System.register(["angular2/core"], function(exports_1) {
                 AboutComponent = __decorate([
                     core_1.Component({
                         selector: "about",
-                        templateUrl: "./Components/about/about.component.html"
+                        templateUrl: "./app/Components/about/about.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AboutComponent);
