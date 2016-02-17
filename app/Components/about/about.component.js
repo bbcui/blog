@@ -1,5 +1,4 @@
-System.register(['angular2/core'], function(exports_1) {
-    "use strict";
+System.register(["angular2/core"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,27 +9,27 @@ System.register(['angular2/core'], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var AppComponent;
+    var AboutComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            AboutComponent = (function () {
+                function AboutComponent() {
                 }
-                AppComponent = __decorate([
+                AboutComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        templateUrl: 'app/Components/appComponent/app.Component.html'
+                        selector: "about",
+                        templateUrl: "./Components/about/about.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
-            }());
-            exports_1("AppComponent", AppComponent);
+                ], AboutComponent);
+                return AboutComponent;
+            })();
+            exports_1("AboutComponent", AboutComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=about.component.js.map

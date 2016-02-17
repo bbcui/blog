@@ -1,0 +1,64 @@
+@media screen and (min-width:840px){
+    .sidebarPane {
+        width: 22.5%;
+        float: left;
+    }
+
+    .mainPane {
+        background: lightgoldenrodyellow;
+        margin-left: 22.5%;
+    }
+    .mainContainer {
+       padding-left:12%;
+       padding-right:12%;
+       padding-bottom: 2%;
+    }
+    .navigation-section {
+        font-family: "PT Sans Narrow",sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top:25px;
+        margin-bottom: 5px
+    }
+    .sitename {
+        width: 22.5%;
+        float: left;
+        display: inline
+    }
+    .navlinks {
+        margin-left: 22.5%;
+    }
+    .bio-photo {
+        border-radius: 150px;
+        max-width: 130px;
+        float:top
+    }
+    .footerPane {
+        background: lightsteelblue;
+    }
+    .bio-details{
+        margin-left: 5.5%
+    }
+}
+
+body.home{
+    font-family: Verdana;
+    font-feature-settings: "liga", "onum", "kern";
+    font-size: 1.6em;
+    letter-spacing: 0.01rem;
+    line-height: 1.4em;
+    text-rendering: geometricprecision;
+}
+a{
+    color: #343434;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "PT Sans Narrow",sans-serif;
+    display: block;
+}
+@media screen and (max-width:839px) {
+  nav li {
+    display: inline;
+  }
+}
+
