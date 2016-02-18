@@ -20,7 +20,7 @@ export class PostRenderer implements OnInit{
     } 
     
     public ngOnInit(){
-        var content = this._http.get("http://localhost:3000/_posts/1.md").map(res => 
+        var content = this._http.get("http://localhost:3000/_posts/1.md").map(res => {
             res.text()).subscribe(
                 data => function(){
                 this.content = data;
