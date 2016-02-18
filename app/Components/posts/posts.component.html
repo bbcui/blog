@@ -19,4 +19,9 @@
         <br/>
         asf
         <br/>
+        <ul>
+            <li *ngFor='#post of posts' (click)="viewPost(post)" >
+                {{post.content}}   
+            </li>
+        </ul>
 </div>

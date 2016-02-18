@@ -1,4 +1,4 @@
-System.register(["angular2/core"], function(exports_1) {
+System.register(["angular2/core", "../../Models/post/post", "angular2/router"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,23 +8,35 @@ System.register(["angular2/core"], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, post_1, router_1;
     var PostsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (post_1_1) {
+                post_1 = post_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             PostsComponent = (function () {
-                function PostsComponent() {
+                function PostsComponent(_router) {
+                    this._router = _router;
+                    this.posts = Array();
+                    this.posts.push(new post_1.Post("ssadfasfsad"));
                 }
+                PostsComponent.prototype.viewPost = function () {
+                    this._router.navigate(['Post', { id: 1 }]);
+                };
                 PostsComponent = __decorate([
                     core_1.Component({
                         selector: "posts",
-                        templateUrl: "./app/Components/posts/posts.component.html"
+                        templateUrl: "./app/Components/posts/posts.component.html",
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [router_1.Router])
                 ], PostsComponent);
                 return PostsComponent;
             })();
