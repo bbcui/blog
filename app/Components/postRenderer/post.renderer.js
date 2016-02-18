@@ -1,4 +1,4 @@
-System.register(["angular2/core", 'angular2/platform/browser', '../../Models/post/post', 'angular2/router'], function(exports_1) {
+System.register(["angular2/core", 'angular2/platform/browser', '../../Models/post/post', 'angular2/router', "angular2/http", 'rxjs/Rx'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", 'angular2/platform/browser', '../../Models/pos
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, browser_1, post_1, router_1;
+    var core_1, browser_1, post_1, router_1, http_1;
     var PostRenderer;
     return {
         setters:[
@@ -23,27 +23,38 @@ System.register(["angular2/core", 'angular2/platform/browser', '../../Models/pos
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-            }],
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (_1) {}],
         execute: function() {
             PostRenderer = (function () {
-                function PostRenderer(_dom, _Router, _routerParam) {
+                function PostRenderer(_dom, _Router, _routerParam, _http) {
                     this._dom = _dom;
                     this._Router = _Router;
                     this._routerParam = _routerParam;
+                    this._http = _http;
                     this.post = new post_1.Post('# Marked in browser\n\nRendered by **marked**.');
                     this.post.id = this._routerParam.get('id');
                 }
                 PostRenderer.prototype.ngOnInit = function () {
-                    this.content = marked(this.post.content);
-                    this._dom.query("#content").innerHTML = this.content;
+                    var content = this._http.get("http://localhost:3000/_posts/1.md").map(function (res) {
+                        return res.text();
+                    }).subscribe(function (data) { return function () {
+                        this.content = data;
+                    }; }, function (err) { return console.log(err); }, function () { return console.log('Random Quote Complete'); });
+                    console.log(this.content);
+                    // this.content = marked(this.content)
+                    // this._dom.query("#content").innerHTML = this.content;
                 };
                 PostRenderer = __decorate([
                     core_1.Component({
                         selector: "post-renderer",
                         templateUrl: "./app/Components/postRenderer/post.renderer.html",
-                        providers: [browser_1.BrowserDomAdapter],
+                        providers: [browser_1.BrowserDomAdapter, http_1.Http, http_1.HTTP_PROVIDERS],
                     }), 
-                    __metadata('design:paramtypes', [browser_1.BrowserDomAdapter, router_1.Router, router_1.RouteParams])
+                    __metadata('design:paramtypes', [browser_1.BrowserDomAdapter, router_1.Router, router_1.RouteParams, http_1.Http])
                 ], PostRenderer);
                 return PostRenderer;
             })();
